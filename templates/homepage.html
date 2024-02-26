@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="mb-4">Blogly Recent Posts</h1>
+    <div class="list-group">
+        {% for post in recent_posts %}
+            <div class="list-group-item list-group-item-action">
+                <h2 class="mb-2">{{ post.title }}</h2>
+                <p class="mb-1">{{ post.content }}</p>
+                <small class="text-muted">By: {{ post.user.get_full_name() }} | Posted on: {{ post.created_at.strftime('%B %d, %Y, %I:%M %p') }}</small>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
